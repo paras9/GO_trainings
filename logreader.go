@@ -16,8 +16,10 @@ type LogEntry struct {
 	Message   string `json:"message"`
 }
 
+// used to parse the log entries into timestamp, level, and message components.
 var logPattern = regexp.MustCompile(`^(?P<timestamp>\S+) \[(?P<level>[A-Z]+)\] (?P<message>.+)$`)
 
+// returns a LogEntry if the line matches the expected format.
 func parseLine(line string) (LogEntry, bool) {
 	matches := logPattern.FindStringSubmatch(line)
 	if matches == nil {

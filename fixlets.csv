@@ -999,3 +999,4 @@ SiteID,FxiletID,Name,Criticality,RelevantComputerCount
 1,5012170998,MS22-AUG: Security Update for Windows Server 2022 - Windows Server 2022 - KB5012170998 (x64),Low,21
 1,5012170999,MS22-AUG: Security Update for Windows Server 2022 - Windows Server 2022 - KB5012170999 (x64),Low,45
 1,50121701000,MS22-AUG: Security Update for Windows Server 2022 - Windows Server 2022 - KB50121701000 (x64),Critical,96
+1,2,asd,Low,0
