@@ -1,0 +1,44 @@
+INFO: 2024/12/18 09:48:32 Started GET /
+INFO: 2024/12/18 09:48:32 Completed / in 3.9394ms
+INFO: 2024/12/18 09:48:32 Started GET /favicon.ico
+INFO: 2024/12/18 09:48:32 Completed /favicon.ico in 3.7523ms
+INFO: 2024/12/18 10:01:38 Started GET /
+INFO: 2024/12/18 10:01:38 Completed / in 2.4084ms
+INFO: 2024/12/18 10:01:38 Started GET /favicon.ico
+INFO: 2024/12/18 10:01:38 Completed /favicon.ico in 12.6825ms
+INFO: 2024/12/18 10:01:41 Started GET /api/list
+INFO: 2024/12/18 10:01:41 Completed /api/list in 1.1553ms
+INFO: 2024/12/18 10:01:51 Started POST /upload
+INFO: 2024/12/18 10:01:51 Completed /upload in 11.1057ms
+INFO: 2024/12/18 10:01:51 Started GET /
+INFO: 2024/12/18 10:01:51 Completed / in 4.5735ms
+INFO: 2024/12/18 10:01:51 Started GET /api/list
+INFO: 2024/12/18 10:01:51 Completed /api/list in 12.0217ms
+INFO: 2024/12/18 10:01:55 Started GET /api/list
+INFO: 2024/12/18 10:01:55 Completed /api/list in 16.0865ms
+INFO: 2024/12/18 10:02:42 Started POST /api/add
+INFO: 2024/12/18 10:02:42 Completed /api/add in 13.7989ms
+INFO: 2024/12/18 10:02:46 Started GET /api/list
+INFO: 2024/12/18 10:02:46 Completed /api/list in 15.8105ms
+INFO: 2024/12/18 10:04:53 Started GET /
+INFO: 2024/12/18 10:04:53 Completed / in 2.3762ms
+INFO: 2024/12/18 10:04:53 Started GET /favicon.ico
+INFO: 2024/12/18 10:04:53 Completed /favicon.ico in 8.9106ms
+INFO: 2024/12/18 11:44:30 Started GET /entries
+INFO: 2024/12/18 11:44:30 Completed /entries in 12.2787ms
+INFO: 2024/12/18 11:44:42 Started POST /entries/add
+INFO: 2024/12/18 11:44:42 Completed /entries/add in 3.283ms
+INFO: 2024/12/18 11:44:49 Started GET /entries
+INFO: 2024/12/18 11:44:49 Completed /entries in 1.1915ms
+INFO: 2024/12/18 11:44:56 Started POST /entries/add
+INFO: 2024/12/18 11:44:56 Completed /entries/add in 1.722ms
+INFO: 2024/12/18 11:44:57 Started DELETE /entries/1000
+INFO: 2024/12/18 11:44:57 Completed /entries/1000 in 1.0833ms
+INFO: 2024/12/18 12:30:23 Started GET /
+INFO: 2024/12/18 12:30:23 Completed / in 2.2867ms
+INFO: 2024/12/18 12:30:23 Started GET /favicon.ico
+INFO: 2024/12/18 12:30:23 Completed /favicon.ico in 386.6µs
+INFO: 2024/12/18 12:33:31 Started GET /
+INFO: 2024/12/18 12:33:31 Completed / in 1.1843ms
+INFO: 2024/12/18 12:33:31 Started GET /favicon.ico
+INFO: 2024/12/18 12:33:31 Completed /favicon.ico in 256.1µs

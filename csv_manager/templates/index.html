@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        button, input[type="file"], input[type="text"], input[type="number"] {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        button:hover, input[type="file"]:hover {
+            background-color: #f0f0f0;
+        }
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .buttons-container button {
+            flex: 1 1 calc(30% - 10px);
+        }
+        .result-box {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-size: 14px;
+        }
+        .success-message {
+            color: green;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .error-message {
+            color: red;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        async function fetchList() {
+            const response = await fetch('/api/list');
+            const data = await response.json();
+            document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+        }
+
+        async function addEntry() {
+            const row = document.getElementById('add-input').value.split(',');
+            const response = await fetch('/api/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(row),
+            });
+            if (response.ok) {
+                alert("Entry added successfully!");
+                fetchList();
+            } else {
+                alert("Failed to add entry.");
+            }
+        }
+
+        async function deleteEntry() {
+            const index = document.getElementById('delete-index').value;
+            const response = await fetch(`/api/delete?index=${index}`, { method: 'DELETE' });
+            if (response.ok) {
+                alert("Entry deleted successfully!");
+                fetchList();
+            } else {
+                alert("Failed to delete entry. Make sure the index is valid.");
+            }
+        }
+
+        async function uploadCSV(event) {
+            event.preventDefault();
+            const form = document.getElementById('upload-form');
+            const formData = new FormData(form);
+
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                document.getElementById('success-message').innerText = "CSV file uploaded successfully!";
+                fetchList();
+            } else {
+                document.getElementById('success-message').innerText = "Failed to upload CSV file.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>CSV WebPage</h1>
+        <p>With the help of below fuction upload a csv file</p>
+
+        <!-- File Upload -->
+        <form id="upload-form" onsubmit="uploadCSV(event)" enctype="multipart/form-data">
+            <label for="csvfile">Select CSV File:</label>
+            <input type="file" id="csvfile" name="csvfile" accept=".csv" required>
+            <button type="submit">Upload File</button>
+        </form>
+        <p id="success-message" class="success-message"></p>
+
+        <!-- Operations Buttons -->
+        <div class="buttons-container">
+            <button onclick="fetchList()">List Entries</button>
+        </div>
+
+        <!-- Add Entry -->
+        <h2>Add Entry</h2>
+        <input id="add-input" type="text" placeholder="Enter row as comma-separated values">
+        <button onclick="addEntry()">Add</button>
+
+        <!-- Delete Entry -->
+        <h2>Delete Entry</h2>
+        <input id="delete-index" type="number" placeholder="Enter index to delete">
+        <button onclick="deleteEntry()">Delete</button>
+
+        <!-- Result Box -->
+        <div class="result-box">
+            <h2>Result</h2>
+            <pre id="result"></pre>
+        </div>
+    </div>
+</body>
+</html>
